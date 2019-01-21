@@ -7,10 +7,12 @@ import java.util.Scanner;
 public class Card {
     String suit;
     int num;
+
     Card(String suit, int num) {
         this.suit = suit;
         this.num = num;
     }
+
     /*
     トランプのコンストラクタ
     @param num トランプの数字
@@ -31,9 +33,6 @@ public class Card {
     @return ArrayList<Card> Cards:Cardクラスで作ったトランプの配列
      */
     ArrayList<Card> makeCards() {
-//        this.suits = suits;
-//        this.Cards = Cards;
-
         for (String s : suits) {
             for (int i = 1; i <= trampNum; i++) {
                 Card card = new Card(s, i);
@@ -50,11 +49,10 @@ public class Card {
     **/
     ArrayList<Card> tehuda = new ArrayList<Card>();
 
-    ArrayList<Card> tehuda() {
+    ArrayList<Card> hunds() {
         int numCard = 5;
         int player = 1;
 
-//        ArrayList<Card> tehuda = new ArrayList<Card>();
         for (int i = 0; i < player; i++) {
             for (int j = 0; j < numCard; j++) {
                 Random num = new Random();
@@ -64,7 +62,7 @@ public class Card {
                 Cards.remove(num2);
             }
         }
-        for(Card c:tehuda){
+        for (Card c : tehuda) {
             System.out.println(c.suit + c.num);
         }
         return tehuda;
@@ -78,12 +76,11 @@ public class Card {
         int changeNum = scan.nextInt();
 
         ArrayList<Integer> changeIndexList = new ArrayList<Integer>();
-
         for (int i = 0; i < changeNum; i++) {
-            System.out.println("交換したいカード: ");
+            System.out.println("交換したいカード(上から1~5): ");
             int changeIndex = scan.nextInt();
 
-            if (changeIndex > tehuda().size()) {
+            if (changeIndex > tehuda.size()) {
                 System.out.println("1~5の数字を入力してください");
                 int changeIndex2 = scan.nextInt();
                 changeIndexList.add(changeIndex2);
@@ -95,13 +92,10 @@ public class Card {
             Random num = new Random();
             int num2 = num.nextInt(Cards.size());
 
-            Card c = tehuda.get(i);
-            System.out.println(c.suit+c.num);
+            tehuda.set(i - 1, Cards.get(num2));
         }
-        for (int i = 0; i < tehuda.size(); i++) {
-            System.out.println(tehuda.get(i).suit + tehuda.get(i).num);
+        for (Card c : tehuda) {
+            System.out.println(c.suit + c.num);
         }
     }
 }
-
-

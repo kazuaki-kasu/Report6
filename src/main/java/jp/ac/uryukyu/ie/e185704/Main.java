@@ -11,11 +11,14 @@ public class Main {
         System.out.println(c.Cards.size());
 
         //手札表示
-        c.tehuda();
+        c.hunds();
         //カード交換
 //        System.out.println(c.tehuda.size());
 //        System.out.println(c.Cards.size());
 
         c.changeCard();
+//        for(Card s:c.tehuda){
+//            System.out.println(s.suit + s.num);
+//        }
     }
 }
