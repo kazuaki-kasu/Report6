@@ -2,33 +2,20 @@ package jp.ac.uryukyu.ie.e185704;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /* 1:play人数受け取り
-        2:人数に応じてカードを配る
-         */
-        String[] suits = {"♠︎", "♣︎", "♦︎", "❤︎"};
-        ArrayList<Card> Cards = new ArrayList<Card>();
+        Card c = new Card(); //インスタンス呼び出し
+        c.makeCards();
+        System.out.println(c.Cards.size());
 
-        for (String s : suits) {
-            for (int i = 1; i < 14; i++) {
-                Card card = new Card(s, i);
-                Cards.add(card);
-            }
-        }
-        int numOfPlayer = 1;
-        int numOfCard = 5;
+        //手札表示
+        c.tehuda();
+        //カード交換
+//        System.out.println(c.tehuda.size());
+//        System.out.println(c.Cards.size());
 
-        for (int i = 0; i < numOfPlayer; i++) {
-            ArrayList<Card> tehuda_i = new ArrayList<Card>();
-            for(int j = 0; j < numOfCard; j++) {
-                Random num = new Random();
-                int num2 = num.nextInt(Cards.size());
-                tehuda_i.add(Cards.get(num2));
-//                System.out.println(Cards.get(num2).suit + Cards.get(num2).num);
-                Cards.remove(num2);
-            }
-        }
+        c.changeCard();
     }
 }
