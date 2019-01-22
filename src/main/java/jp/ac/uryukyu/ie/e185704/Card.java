@@ -5,6 +5,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Card {
+    /**
+    トランプのコンストラクタ
+    @param num トランプの数字
+    @param suit マーク
+     */
     String suit;
     int num;
 
@@ -12,26 +17,17 @@ public class Card {
         this.suit = suit;
         this.num = num;
     }
+    Card(){}
 
-    /*
-    トランプのコンストラクタ
-    @param num トランプの数字
-    @param suit マーク
-     */
-    Card() {
-    }
-
-    /* 山札を作る、人数分配る、などの場の準備
+    /**
+    @param suit トランプのマーク
+    @param trampNum マークごとのトランプの枚数
+    @return ArrayList<Card> Cards:Cardクラスで作ったトランプの配列
      */
     String[] suits = {"♠︎", "♣︎", "♦︎", "❤︎"};
     int trampNum = 13;
     ArrayList<Card> Cards = new ArrayList<Card>();
 
-    /*
-    @param:suit トランプのマーク
-    @param:trampNum マークごとのトランプの枚数
-    @return ArrayList<Card> Cards:Cardクラスで作ったトランプの配列
-     */
     ArrayList<Card> makeCards() {
         for (String s : suits) {
             for (int i = 1; i <= trampNum; i++) {
@@ -42,14 +38,15 @@ public class Card {
         return Cards;
     }
 
-    /*
-    @param numOfPlayer:プレイヤーの人数 後々入力された人数に設定したい
+    /**
+     * 山札からプレイヤーにカードを5枚配るメソッド
+    @param numOfPlayer:プレイヤーの人数 後々入力された人数に設定したかった
     @param numOfCard:一人一人に配るカードの枚数
     @return ArrayList<Card> tehuda:各々の手札の配列
-    **/
+    */
     ArrayList<Card> tehuda = new ArrayList<Card>();
 
-    ArrayList<Card> hunds() {
+    public ArrayList<Card> hunds() {
         int numCard = 5;
         int player = 1;
 
@@ -68,7 +65,12 @@ public class Card {
         return tehuda;
     }
 
-    //カードを交換するメソッド
+    /**
+     * カードを選び交換するメソッド
+     * @changeIndex 交換するカードの番号
+     * @changeIndexList カード番号のリスト
+     * @Cards 山札
+     */
     void changeCard() {
         Scanner scan = new Scanner(System.in);
 
@@ -93,6 +95,7 @@ public class Card {
             int num2 = num.nextInt(Cards.size());
 
             tehuda.set(i - 1, Cards.get(num2));
+            Cards.remove(num2);
         }
         for (Card c : tehuda) {
             System.out.println(c.suit + c.num);

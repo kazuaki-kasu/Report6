@@ -7,18 +7,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Card c = new Card(); //インスタンス呼び出し
-        c.makeCards();
-        System.out.println(c.Cards.size());
-
-        //手札表示
-        c.hunds();
-        //カード交換
-//        System.out.println(c.tehuda.size());
+        c.makeCards(); //山札召喚
 //        System.out.println(c.Cards.size());
 
-        c.changeCard();
-//        for(Card s:c.tehuda){
-//            System.out.println(s.suit + s.num);
-//        }
+        c.hunds();        //手札表示
+        c.changeCard();        //カード交換
     }
 }
