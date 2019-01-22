@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CardTest {
+class CardTest {
 
     Card card = new Card();
     String[] suits = {"♠︎", "♣︎", "♦︎", "❤︎"};
@@ -30,7 +30,7 @@ public class CardTest {
     /**
      * 山札からカードを配った時、山札が引いた枚数分減っているかテストするメソッド
      */
-    public void hunds(){
+    void hunds(){
         makeCards();
         int numCard = 5;
         for(int i = 0; i<numCard; i++){
